@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
+    <title>Abraham Marroquin - Portafolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --dark-color: #1e293b;
-            --light-color: #f8fafc;
-            --gray-color: #64748b;
+            --primary-color: #8FBC8F; /* Verde pastel */
+            --secondary-color: #DAA520; /* Amarillo otoñal */
+            --accent-color: #DEB887; /* Marrón claro pastel */
+            --dark-color: #556B2F; /* Verde oscuro */
+            --light-color: #FAF0E6; /* Beige pastel */
+            --gray-color: #8B7355; /* Marrón medio */
             --transition: all 0.3s ease;
         }
 
@@ -41,8 +42,8 @@
 
         /* Header */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(85, 107, 47, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -59,7 +60,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--dark-color);
         }
 
         .nav-links {
@@ -79,7 +80,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--secondary-color);
         }
 
         .menu-toggle {
@@ -92,7 +93,7 @@
         .hero {
             padding: 150px 0 100px;
             text-align: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, var(--light-color) 0%, #F5F5DC 100%);
         }
 
         .hero h1 {
@@ -122,9 +123,35 @@
         }
 
         .btn:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--dark-color);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tech Marquee */
+        .tech-marquee {
+            background-color: var(--accent-color);
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-content span {
+            padding: 0 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Sections */
@@ -198,6 +225,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            border-top: 5px solid var(--primary-color);
         }
 
         .skill-category:hover {
@@ -208,7 +236,7 @@
         .skill-category h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: var(--dark-color);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -262,6 +290,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            border-top: 5px solid var(--secondary-color);
         }
 
         .project-card:hover {
@@ -273,6 +302,12 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            font-size: 1.2rem;
         }
 
         .project-content {
@@ -327,79 +362,59 @@
 
         /* Contact Section */
         .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
         }
 
         .contact-info {
             display: flex;
-            flex-direction: column;
-            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
         }
 
         .contact-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 15px;
+            text-align: center;
+            max-width: 250px;
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             background-color: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
         }
 
         .contact-details h3 {
             font-size: 1.2rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        .contact-details p {
+        .contact-details p, .contact-details a {
             color: var(--gray-color);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 5px;
-            font-size: 1rem;
+            text-decoration: none;
             transition: var(--transition);
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
+        .contact-details a:hover {
+            color: var(--primary-color);
         }
 
         /* Footer */
@@ -428,14 +443,14 @@
         }
 
         .social-links a:hover {
-            color: var(--primary-color);
+            color: var(--secondary-color);
         }
 
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
+            border-top: 1px solid #556B2F;
+            color: #8FBC8F;
         }
 
         /* Responsive */
@@ -486,6 +501,11 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 576px) {
@@ -514,7 +534,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">MiPortafolio</div>
+                <div class="logo">Abraham.M</div>
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
@@ -532,11 +552,31 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="container">
-            <h1>Hola, soy <span style="color: var(--primary-color);">Tu Nombre</span></h1>
-            <p>Desarrollador apasionado por crear soluciones innovadoras con código limpio y eficiente. Especializado en JavaScript, Node.js y C#.</p>
+            <h1>Hola, soy <span style="color: var(--dark-color);">Abraham Jacobo Marroquin Martínez</span></h1>
+            <p>Desarrollador especializado en C# .NET con experiencia en SQL Server. Apasionado por crear soluciones eficientes y escalables.</p>
             <a href="#proyectos" class="btn">Ver Mis Proyectos</a>
         </div>
     </section>
+
+    <!-- Tech Marquee -->
+    <div class="tech-marquee">
+        <div class="marquee-content">
+            <span>C#</span>
+            <span>.NET</span>
+            <span>SQL Server</span>
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>C#</span>
+            <span>.NET</span>
+            <span>SQL Server</span>
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="sobre-mi" class="about">
@@ -548,13 +588,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Mi Trayectoria</h3>
-                    <p>Soy un desarrollador de software con experiencia en la creación de aplicaciones web y soluciones tecnológicas. Mi pasión por la programación comenzó durante mis estudios y he continuado expandiendo mis habilidades a través de proyectos prácticos.</p>
-                    <p>Me especializo en desarrollo backend con Node.js y tengo experiencia en testing de APIs utilizando herramientas como Postman. También he trabajado con C# en proyectos académicos y tengo conocimientos básicos en Python para proyectos de scripting y automatización.</p>
-                    <p>Me considero un aprendiz constante, siempre buscando nuevos desafíos que me permitan crecer profesionalmente y aportar valor a los proyectos en los que participo.</p>
+                    <p>Soy Abraham Jacobo Marroquin Martínez, tengo 25 años y soy un desarrollador de software con experiencia en la creación de aplicaciones empresariales y soluciones tecnológicas.</p>
+                    <p>Mi especialidad es el desarrollo con C# y .NET, con amplia experiencia en SQL Server para la gestión de bases de datos. He trabajado en diversos proyectos donde he aplicado estos conocimientos para crear soluciones robustas y eficientes.</p>
+                    <p>También tengo experiencia en Python para scripting y automatización, así como conocimientos en JavaScript, HTML y CSS para el desarrollo frontend cuando es necesario.</p>
+                    <p>Me considero un profesional comprometido, con capacidad para aprender rápidamente y adaptarme a nuevos desafíos. Siempre busco oportunidades para crecer y aportar valor a los proyectos en los que participo.</p>
                     <a href="#contacto" class="btn">Contáctame</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/300" alt="Tu Foto" class="profile-img">
+                    <img src="https://via.placeholder.com/300" alt="Abraham Marroquin" class="profile-img">
                 </div>
             </div>
         </div>
@@ -569,61 +610,65 @@
             </div>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3><i class="fab fa-js"></i> JavaScript & Node.js</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span>JavaScript (ES6+)</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 90%"></div></div>
-                        </li>
-                        <li>
-                            <span>Node.js</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
-                        </li>
-                        <li>
-                            <span>API Testing</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
-                        </li>
-                        <li>
-                            <span>Postman</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fab fa-python"></i> Python</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span>Python Básico</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 70%"></div></div>
-                        </li>
-                        <li>
-                            <span>Scripting</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 65%"></div></div>
-                        </li>
-                        <li>
-                            <span>Automatización</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 60%"></div></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> C# & Otras Tecnologías</h3>
+                    <h3><i class="fas fa-code"></i> C# & .NET</h3>
                     <ul class="skill-list">
                         <li>
                             <span>C#</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 75%"></div></div>
+                            <div class="skill-level"><div class="skill-progress" style="width: 90%"></div></div>
                         </li>
                         <li>
                             <span>.NET Framework</span>
-                            <div class="skill-level"><div class="skill-progress" style="width: 70%"></div></div>
+                            <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
                         </li>
                         <li>
-                            <span>Git & GitHub</span>
+                            <span>ASP.NET</span>
                             <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
                         </li>
                         <li>
-                            <span>Bases de Datos SQL</span>
+                            <span>Entity Framework</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 75%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span>SQL Server</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span>Consultas SQL</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
+                        </li>
+                        <li>
+                            <span>Diseño de BD</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 75%"></div></div>
+                        </li>
+                        <li>
+                            <span>Optimización</span>
                             <div class="skill-level"><div class="skill-progress" style="width: 70%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Otras Tecnologías</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span>Python</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 75%"></div></div>
+                        </li>
+                        <li>
+                            <span>JavaScript</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 70%"></div></div>
+                        </li>
+                        <li>
+                            <span>HTML & CSS</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
+                        </li>
+                        <li>
+                            <span>Git & GitHub</span>
+                            <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
                         </li>
                     </ul>
                 </div>
@@ -640,49 +685,52 @@
             </div>
             <div class="projects-container">
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200" alt="Proyecto 1" class="project-img">
-                    <div class="project-content">
-                        <h3>Sistema de Gestión de Tareas</h3>
-                        <p>Aplicación web para gestionar tareas personales y de equipo, desarrollada con Node.js, Express y MongoDB.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">Express</span>
-                            <span class="project-tag">MongoDB</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Código</a>
-                        </div>
+                    <div class="project-img">
+                        Proyecto 1 - Enlace GitHub
                     </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200" alt="Proyecto 2" class="project-img">
                     <div class="project-content">
-                        <h3>API REST para E-commerce</h3>
-                        <p>API completa para un sistema de e-commerce con autenticación, gestión de productos y procesamiento de pedidos.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">Express</span>
-                            <span class="project-tag">JWT</span>
-                            <span class="project-tag">Postman</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200" alt="Proyecto 3" class="project-img">
-                    <div class="project-content">
-                        <h3>Aplicación de Gestión Escolar</h3>
-                        <p>Sistema desarrollado en C# para la gestión de estudiantes, calificaciones y horarios en instituciones educativas.</p>
+                        <h3>Proyecto 1</h3>
+                        <p>Descripción de tu primer proyecto. Incluye detalles sobre las tecnologías utilizadas y el propósito del proyecto.</p>
                         <div class="project-tags">
                             <span class="project-tag">C#</span>
                             <span class="project-tag">.NET</span>
                             <span class="project-tag">SQL Server</span>
-                            <span class="project-tag">WinForms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        Proyecto 2 - Enlace GitHub
+                    </div>
+                    <div class="project-content">
+                        <h3>Proyecto 2</h3>
+                        <p>Descripción de tu segundo proyecto. Explica el problema que resuelve y las tecnologías que implementaste.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">ASP.NET</span>
+                            <span class="project-tag">Entity Framework</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        Proyecto 3 - Enlace GitHub
+                    </div>
+                    <div class="project-content">
+                        <h3>Proyecto 3</h3>
+                        <p>Descripción de tu tercer proyecto. Destaca los desafíos que enfrentaste y cómo los superaste.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">SQL Server</span>
+                            <span class="project-tag">JavaScript</span>
                         </div>
                         <div class="project-links">
                             <a href="#"><i class="fas fa-external-link-alt"></i> Ver Demo</a>
@@ -705,11 +753,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fab fa-github"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>tu.email@ejemplo.com</p>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/vKOfast" target="_blank">github.com/vKOfast</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -718,39 +766,18 @@
                         </div>
                         <div class="contact-details">
                             <h3>Teléfono</h3>
-                            <p>+1 234 567 890</p>
+                            <p>664 561 2965</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Ubicación</h3>
-                            <p>Ciudad, País</p>
+                            <h3>Email</h3>
+                            <a href="mailto:abraham.marroquinmartinez@gmail.com">abraham.marroquinmartinez@gmail.com</a>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nombre</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Asunto</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Enviar Mensaje</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -760,16 +787,14 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">MiPortafolio</div>
+                <div class="logo">Abraham.M</div>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/vKOfast" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:abraham.marroquinmartinez@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Mi Portafolio. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Abraham Jacobo Marroquin Martínez. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -785,13 +810,6 @@
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaré pronto.');
-            this.reset();
         });
 
         // Smooth scrolling for anchor links
